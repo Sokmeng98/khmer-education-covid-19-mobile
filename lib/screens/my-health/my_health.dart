@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../AppLanguage.dart';
 import '../../app_localizations.dart';
@@ -25,31 +26,58 @@ class MyHealth extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 0.0),
+              padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  RaisedButton(
+                  MaterialButton(
                     onPressed: () {
                       appLanguage.changeLanguage(Locale("en"));
                     },
                     child: Text(
                       AppLocalizations.of(context).translate('english'),
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Color.fromRGBO(112, 112, 112, 1.0),
+                      ),
                     ),
                   ),
-                  RaisedButton(
+                  MaterialButton(
                     onPressed: () {
                       appLanguage.changeLanguage(Locale("km"));
                     },
                     child: Text(
                       AppLocalizations.of(context).translate('khmer'),
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Color.fromRGBO(112, 112, 112, 1.0),
+                      ),
                     ),
                   ),
                   Spacer(),
-                  RaisedButton(
-                    onPressed: () {},
-                    child: Text(
-                      AppLocalizations.of(context).translate('hotline'),
+                  MaterialButton(
+                    onPressed: () {
+                      launch("tel:115");
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.call,
+                          size: 30,
+                          color: Color.fromRGBO(112, 112, 112, 1.0),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            AppLocalizations.of(context).translate('hotline'),
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Color.fromRGBO(112, 112, 112, 1.0),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -58,16 +86,36 @@ class MyHealth extends StatelessWidget {
             Padding(
               padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
               child: Container(
-                height: 200.0,
+                height: 225.0,
+                width: MediaQuery.of(context).size.width,
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.red,
                   ),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: Text(
-                      AppLocalizations.of(context).translate('setting'),
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      MaterialButton(
+                          onPressed: () {},
+                          child: Column(
+                            children: <Widget>[
+                              Icon(
+                                Icons.account_circle,
+                                size: 150,
+                                color: Colors.white,
+                              ),
+                              Padding(
+                                padding:
+                                EdgeInsets.fromLTRB(0.0, 25.0, 0.0, 0.0),
+                                child: Text(
+                                  AppLocalizations.of(context)
+                                      .translate('setting'),
+                                  style: TextStyle(fontSize: 25, color: Colors.white),
+                                ),
+                              )
+                            ],
+                          )),
+                    ],
                   ),
                 ),
               ),
@@ -78,40 +126,121 @@ class MyHealth extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
-                    child: RaisedButton(
-                      onPressed: () {},
-                      child: Text(
-                        AppLocalizations.of(context)
-                            .translate('self-diagnosis'),
-                      ),
-                    ),
-                  ),
+                      padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 15.0),
+                      child: Container(
+                        height: 60,
+                        child: RaisedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/self-diagnosis');
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.help,
+                                  size: 30,
+                                  color: Color.fromRGBO(112, 112, 112, 1.0),
+                                ),
+                                Padding(
+                                  padding:
+                                  EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    AppLocalizations.of(context)
+                                        .translate('self-diagnosis'),
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      color: Color.fromRGBO(112, 112, 112, 1.0),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            color: Color.fromRGBO(255, 200, 200, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(10.0),
+                                side: BorderSide(color: Colors.grey))),
+                      )),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/my-health-records');
-                      },
-                      child: Text(
-                        AppLocalizations.of(context)
-                            .translate('health-records'),
-                      ),
-                    ),
-                  ),
+                      padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
+                      child: Container(
+                        height: 60,
+                        child: RaisedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/my-health-records');
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.create,
+                                  size: 30,
+                                  color: Color.fromRGBO(112, 112, 112, 1.0),
+                                ),
+                                Padding(
+                                  padding:
+                                  EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    AppLocalizations.of(context)
+                                        .translate('health-records'),
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      color: Color.fromRGBO(112, 112, 112, 1.0),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            color: Color.fromRGBO(255, 200, 200, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(10.0),
+                                side: BorderSide(color: Colors.grey))),
+                      )),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
-                    child: RaisedButton(
-                      onPressed: () {},
-                      child: Text(
-                        AppLocalizations.of(context)
-                            .translate('near-by-hospitals'),
-                      ),
-                    ),
-                  ),
+                      padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
+                      child: Container(
+                        height: 60,
+                        child: RaisedButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.map,
+                                  size: 30,
+                                  color: Color.fromRGBO(112, 112, 112, 1.0),
+                                ),
+                                Padding(
+                                  padding:
+                                  EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    AppLocalizations.of(context)
+                                        .translate('near-by-hospitals'),
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      color: Color.fromRGBO(112, 112, 112, 1.0),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            color: Color.fromRGBO(255, 200, 200, 1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(10.0),
+                                side: BorderSide(color: Colors.grey))),
+                      )),
                 ],
               ),
             ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 50, 0.0, 0.0),
+              child: Text(
+                AppLocalizations.of(context).translate('supported-by') +
+                    ':​ MOEYS & MOH​​​​​​​​​​​​​',
+                style: TextStyle(
+                  color: Color.fromRGBO(112, 112, 112, 1.0),
+                ),
+              ),
+            )
           ],
         ),
       ),

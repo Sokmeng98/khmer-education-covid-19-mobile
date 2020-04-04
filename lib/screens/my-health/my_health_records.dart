@@ -13,7 +13,7 @@ class MyHealthRecordList extends StatelessWidget {
     fontWeight: FontWeight.bold,
   );
 
-  //TODO From-Backend Stuff
+  //TODO From-Backend Stuff - Below is dummy Data
   List records = [
     HealthData(date: 'ថ្ញៃ​ ចន័្ទ​ ទី ២៦ ខែ មីនា​ ឆ្នាំ ២០២០', temperature: '៣៨​', symptoms: 'ក្អក ផ្តាសាយ', didTravelTo: 'ផ្សារថ្មី'),
     HealthData(date: 'ថ្ញៃ​ ចន័្ទ​ ទី ២៦ ខែ មីនា​ ឆ្នាំ ២០២០', temperature: '៣៨​', symptoms: 'ក្អក', didTravelTo: 'ផ្សារថ្មី'),
