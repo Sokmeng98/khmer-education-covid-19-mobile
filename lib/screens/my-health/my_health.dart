@@ -90,7 +90,9 @@ class MyHealth extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/my-health-records');
+                      },
                       child: Text(
                         AppLocalizations.of(context)
                             .translate('health-records'),

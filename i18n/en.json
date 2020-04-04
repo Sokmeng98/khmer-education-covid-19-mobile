@@ -7,6 +7,14 @@
     "hotline": "Hotline!",
     "self-diagnosis": "Self Diagnosis",
     "health-records": "Health Records",
-    "near-by-hospitals": "Nearby Hosptials",
+    "health-record-input": "Input your health record",
+    "msg-for-required-field": "Please enter some text",
+    "processing-data": "Processing Data...",
+    "save-data": "Save",
+    "date-field": "DD-MM-YYYY",
+    "body-temp": "Body Temperature(°C)",
+    "symptoms": "Symptoms",
+    "did-travel-to":"Has travelled to",
+    "near-by-hospitals": "Nearby Hospitals",
     "setting": "Setting"
 }
