@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:khmer_education/screens/self-diagnosis/self_diagnosis.dart';
 import './AppLanguage.dart';
 import 'app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ class Routes extends StatelessWidget {
     '/news': (BuildContext context) => News(),
     '/map': (BuildContext context) => Map(),
     '/setting': (BuildContext context) => Setting(),
+    '/self-diagnosis': (BuildContext context) => SelfDiagnosis(),
   };
 
   Routes({this.appLanguage});
