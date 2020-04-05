@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khmer_education/screens/setting/setting.dart';
 import 'package:provider/provider.dart';
 
 import '../../AppLanguage.dart';
@@ -64,7 +65,12 @@ class MyHealth extends StatelessWidget {
                     color: Colors.red,
                   ),
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Setting()),
+                      );
+                    },
                     child: Text(
                       AppLocalizations.of(context).translate('setting'),
                     ),
