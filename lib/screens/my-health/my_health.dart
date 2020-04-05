@@ -97,7 +97,9 @@ class MyHealth extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/setting');
+                          },
                           child: Column(
                             children: <Widget>[
                               Icon(
