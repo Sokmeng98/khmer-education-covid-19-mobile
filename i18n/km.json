@@ -4,9 +4,18 @@
     "news": "ព័ត៍មាន",
     "english": "English",
     "khmer": "ភាសាខ្មែរ",
-    "hotline": "ទាក់ទងអ្នកជំនាញ!",
+    "hotline": "ទាក់ទងអ្នកជំនាញ",
     "self-diagnosis": "ធ្វើតេស្តវិនិច្ឆ័យខ្លួនឯង",
     "health-records": "កំណត់ត្រាសុខភាពខ្ញុំ",
+    "health-record-input": "កត់ត្រាសុខភាពប្រចាំថ្ងៃ",
+    "msg-for-required-field": "សូមបំពេញ",
+    "processing-data": "កំពុងដំណេីរការ...",
+    "save-data": "រក្សារទុក",
+    "date-field": "ថ្ងៃ ខែ ឆ្នាំ",
+    "body-temp": "សីតុណ្ហភាពខ្លួន(°C)",
+    "symptoms": "រោគសញ្ញា",
+    "did-travel-to": "ធ្វេីដំណេីរ",
     "near-by-hospitals": "មណ្ឌលសុខភាពនៅក្បែរ",
-    "setting": "គណនី"
+    "setting": "គណនី",
+    "supported-by": "គម្រោងគាំទ្រដោយ"
 }
