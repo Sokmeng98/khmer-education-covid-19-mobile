@@ -341,6 +341,11 @@ String validateName(String value) {
                         Container(
                           width: width,
                           child: TextFormField(
+                            onTap: () {
+                              _showDateTimePicker();
+                              // diable keyboard
+                              FocusScope.of(context).requestFocus(new FocusNode());
+                            },
                             controller: _date,
                             validator: (value) =>
                               value.isEmpty? 'ត្រូវតែបំពេញ ថ្ងៃ​ ខែ ឆ្នាំកំណើត' :null,
@@ -353,12 +358,10 @@ String validateName(String value) {
                               ),
                                suffix: IconButton(
                                 icon: const Icon(Icons.date_range), 
-                                onPressed: () => _showDateTimePicker(),
-                                  
-                                ),
-                              
+                                onPressed: (){
+                                },
+                              ), 
                             ),
-        
                           ),
                         )
                       ) 
