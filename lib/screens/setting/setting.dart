@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:khmer_education/app_localizations.dart';
+import 'package:responsive_value/responsive_value.dart';
 import 'package:intl/intl.dart';
+
 
 
 class Setting extends StatefulWidget {
@@ -9,16 +11,15 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
-  static const TextStyle headerOne = TextStyle(
-    fontSize: 25,
-    fontWeight: FontWeight.bold,
-    color: Colors.grey,
-  );
 
-  static const TextStyle titleOne = TextStyle(
+ 
+ static const TextStyle titleOne = TextStyle(
     fontSize: 40,
     fontWeight: FontWeight.bold,
-  );
+    );
+ 
+
+  
 
 // date picker
   final _formKey = GlobalKey<FormState>();
@@ -113,6 +114,13 @@ String validateName(String value) {
 
   @override
   Widget build(BuildContext context) {
+     var textSize = Responsive<double>( 25 ,sm: 10,md: 20, lg: 30).getValue(context);
+     var width = Responsive<double>(100,sm: 150 , md: 210,lg: 400).getValue(context);
+      TextStyle headerOne = TextStyle(
+        fontSize: textSize,
+        fontWeight: FontWeight.bold,
+        color: Colors.grey,
+      );
     return Scaffold(
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
@@ -236,7 +244,7 @@ String validateName(String value) {
                       padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 0.0),
                       child:
                         Container(
-                          width: 325,
+                          width: width,
                           child: TextFormField(
                             validator: validateName,
                             style: headerOne,
@@ -267,7 +275,7 @@ String validateName(String value) {
                       padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 0.0),
                       child:
                         Container(
-                          width: 325,
+                          width: width,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
@@ -331,8 +339,13 @@ String validateName(String value) {
                       padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 0.0),
                       child:
                         Container(
-                          width: 325,
+                          width: width,
                           child: TextFormField(
+                            onTap: () {
+                              _showDateTimePicker();
+                              // diable keyboard
+                              FocusScope.of(context).requestFocus(new FocusNode());
+                            },
                             controller: _date,
                             validator: (value) =>
                               value.isEmpty? 'ត្រូវតែបំពេញ ថ្ងៃ​ ខែ ឆ្នាំកំណើត' :null,
@@ -345,12 +358,10 @@ String validateName(String value) {
                               ),
                                suffix: IconButton(
                                 icon: const Icon(Icons.date_range), 
-                                onPressed: () => _showDateTimePicker(),
-                                  
-                                ),
-                              
+                                onPressed: (){
+                                },
+                              ), 
                             ),
-        
                           ),
                         )
                       ) 
@@ -371,7 +382,7 @@ String validateName(String value) {
                       padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 0.0),
                       child:
                         Container(
-                          width: 325,
+                          width: width,
                           child: DropdownButtonFormField(
                             validator: (value) =>
                               value.isEmpty? 'ត្រូវតែបំពេញប្រភេទឈាម' : null,
@@ -413,7 +424,7 @@ String validateName(String value) {
                       padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 0.0),
                       child:
                         Container(
-                          width: 325,
+                          width: width,
                           child: TextFormField(
                             validator: (value) =>
                               value.isEmpty? 'ត្រូវតែបំពេញសញ្ជាតិ' : null,
@@ -445,7 +456,7 @@ String validateName(String value) {
                       padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 0.0),
                       child:
                         Container(
-                          width: 325,
+                          width: width,
                           child: TextFormField(
                             validator: validateMobile,
                             style: headerOne,
@@ -476,7 +487,7 @@ String validateName(String value) {
                       padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 0.0),
                       child:
                         Container(
-                          width: 325,
+                          width: width,
                           child: TextFormField(
                             validator:validateEmail,
                             style: headerOne,
@@ -507,7 +518,7 @@ String validateName(String value) {
                       padding: EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 0.0),
                       child:
                         Container(
-                          width: 325,
+                          width: width,
                           child: TextFormField(
                             validator: (value) =>
                               value.isEmpty? 'ត្រូវតែបំពេញទីលំនៅ' : null,
