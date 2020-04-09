@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:khmer_education/screens/self-diagnosis/self_diagnosis.dart';
+import 'package:khmer_education/screens/self-diagnosis/index.dart';
 import './AppLanguage.dart';
 import 'app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -49,7 +49,6 @@ class Routes extends StatelessWidget {
             primarySwatch: Colors.red,
           ),
           routes: routes,
-          //TODO to turn back on
           home: Home(),
         );
       }),
