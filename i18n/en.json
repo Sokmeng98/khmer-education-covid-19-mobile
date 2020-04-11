@@ -41,5 +41,20 @@
     "you-are-okay": "You are okay!",
     "main-tain-hygiene": "Please maintain proper hygiene!",
     "you-are-really-okay": "You are really okay!",
-    "worry-too-much": "Maybe you are worry too much. Please stay healthy!"
+    "worry-too-much": "Maybe you are worry too much. Please stay healthy!",
+    "news-category": "Category",
+    "infection-statistics": "Infection Statistics",
+    "history-covid-19": "History COVID-19",
+    "symptom-covid-19": "Symptom COVID-19",
+    "prevention-covid-19": "Prevention COVID-19",
+    "faq-covid-19": "FAQ COVID-19",
+    "knowledge-test-covid-19": "Quiz COVID-19",
+    "hot-news": "Hot News",
+    "cambodia": "Cambodia",
+    "world": "Global",
+    "total-infection": "Total Infection",
+    "total-recover": "Total Recovering",
+    "total-dead": "Total Dead",
+    "coming-soon": "Coming Soon!",
+    "doing-our-best": "We are working around the clock to make the application better. You can help us by sharing!!"
 }
