@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:khmer_education/screens/self-diagnosis/self_diagnosis.dart';
+import 'package:khmer_education/screens/faq-covid-19/faq-covid-19.dart';
+import 'package:khmer_education/screens/history-covid-19/history-covid-19.dart';
+import 'package:khmer_education/screens/prevention-covid-19/prevention-covid-19.dart';
+import 'package:khmer_education/screens/quiz-covid-19/quiz-covid-19.dart';
+import 'package:khmer_education/screens/self-diagnosis/index.dart';
+import 'package:khmer_education/screens/symptom-covid-19/symptom-covid-19.dart';
 import './AppLanguage.dart';
 import 'app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +30,11 @@ class Routes extends StatelessWidget {
     '/map': (BuildContext context) => Map(),
     '/setting': (BuildContext context) => Setting(),
     '/self-diagnosis': (BuildContext context) => SelfDiagnosis(),
+    '/symptom-covid-19': (BuildContext context) => Symptom(),
+    '/prevention-covid-19': (BuildContext context) => Prevention(),
+    '/history-covid-19': (BuildContext context) => History(),
+    '/faq-covid-19': (BuildContext context) => FAQ(),
+    '/quiz-covid-19': (BuildContext context) => Quiz(),
   };
 
   Routes({this.appLanguage});
@@ -51,7 +61,6 @@ class Routes extends StatelessWidget {
             primarySwatch: Colors.red,
           ),
           routes: routes,
-          //TODO to turn back on
           home: Home(),
         );
       }),

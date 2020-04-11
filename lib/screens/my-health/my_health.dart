@@ -109,11 +109,12 @@ class MyHealth extends StatelessWidget {
                               ),
                               Padding(
                                 padding:
-                                EdgeInsets.fromLTRB(0.0, 25.0, 0.0, 0.0),
+                                    EdgeInsets.fromLTRB(0.0, 25.0, 0.0, 0.0),
                                 child: Text(
                                   AppLocalizations.of(context)
                                       .translate('setting'),
-                                  style: TextStyle(fontSize: 25, color: Colors.white),
+                                  style: TextStyle(
+                                      fontSize: 25, color: Colors.white),
                                 ),
                               )
                             ],
@@ -129,108 +130,114 @@ class MyHealth extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                      padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 15.0),
-                      child: Container(
-                        height: 60,
-                        child: RaisedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/self-diagnosis');
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.help,
-                                  size: 30,
+                    padding: EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 15.0),
+                    child: Container(
+                      height: 60,
+                      child: RaisedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/self-diagnosis');
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.help,
+                              size: 30,
+                              color: Color.fromRGBO(112, 112, 112, 1.0),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                AppLocalizations.of(context)
+                                    .translate('self-diagnosis'),
+                                style: TextStyle(
+                                  fontSize: 22,
                                   color: Color.fromRGBO(112, 112, 112, 1.0),
                                 ),
-                                Padding(
-                                  padding:
-                                  EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    AppLocalizations.of(context)
-                                        .translate('self-diagnosis'),
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                      color: Color.fromRGBO(112, 112, 112, 1.0),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                            color: Color.fromRGBO(255, 200, 200, 1),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(10.0),
-                                side: BorderSide(color: Colors.grey))),
-                      )),
+                          ],
+                        ),
+                        color: Color.fromRGBO(255, 200, 200, 1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.grey),
+                        ),
+                      ),
+                    ),
+                  ),
                   Padding(
-                      padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
-                      child: Container(
-                        height: 60,
-                        child: RaisedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/my-health-records');
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.create,
-                                  size: 30,
+                    padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
+                    child: Container(
+                      height: 60,
+                      child: RaisedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/my-health-records');
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.create,
+                              size: 30,
+                              color: Color.fromRGBO(112, 112, 112, 1.0),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                AppLocalizations.of(context)
+                                    .translate('health-records'),
+                                style: TextStyle(
+                                  fontSize: 22,
                                   color: Color.fromRGBO(112, 112, 112, 1.0),
                                 ),
-                                Padding(
-                                  padding:
-                                  EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    AppLocalizations.of(context)
-                                        .translate('health-records'),
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                      color: Color.fromRGBO(112, 112, 112, 1.0),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                            color: Color.fromRGBO(255, 200, 200, 1),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(10.0),
-                                side: BorderSide(color: Colors.grey))),
-                      )),
+                          ],
+                        ),
+                        color: Color.fromRGBO(255, 200, 200, 1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.grey),
+                        ),
+                      ),
+                    ),
+                  ),
                   Padding(
-                      padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
-                      child: Container(
-                        height: 60,
-                        child: RaisedButton(
-                            onPressed: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.map,
-                                  size: 30,
+                    padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 15.0),
+                    child: Container(
+                      height: 60,
+                      child: RaisedButton(
+                        onPressed: () {},
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.map,
+                              size: 30,
+                              color: Color.fromRGBO(112, 112, 112, 1.0),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                AppLocalizations.of(context)
+                                    .translate('near-by-hospitals'),
+                                style: TextStyle(
+                                  fontSize: 22,
                                   color: Color.fromRGBO(112, 112, 112, 1.0),
                                 ),
-                                Padding(
-                                  padding:
-                                  EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    AppLocalizations.of(context)
-                                        .translate('near-by-hospitals'),
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                      color: Color.fromRGBO(112, 112, 112, 1.0),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                            color: Color.fromRGBO(255, 200, 200, 1),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(10.0),
-                                side: BorderSide(color: Colors.grey))),
-                      )),
+                          ],
+                        ),
+                        color: Color.fromRGBO(255, 200, 200, 1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.grey),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
