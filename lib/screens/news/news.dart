@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../app_localizations.dart';
 
+
 class News extends StatelessWidget {
   static const TextStyle headerOne = TextStyle(
     fontSize: 25,
@@ -54,10 +55,21 @@ class News extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(15.0, 0, 0.0, 0),
                     child: Container(
                       width: 120.0,
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(15),
+                      child: RaisedButton(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(15.0),
+                          side: BorderSide(color: Colors.red)
+                          ),
+                        onPressed: () {
+                           Navigator.pushNamed(context, '/infected-statistics');
+                        },
+                          color: Colors.red,
+                          textColor: Colors.white,
+                          child: 
+                            Text("បច្ចុប្បន្នភាពស្ថិតិឆ្លង",
+                              style:headerOne),
                       ),
+              
                     ),
                   ),
                   Padding(

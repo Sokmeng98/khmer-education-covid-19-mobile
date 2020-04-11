@@ -115,7 +115,7 @@ String validateName(String value) {
   @override
   Widget build(BuildContext context) {
      var textSize = Responsive<double>( 25 ,sm: 10,md: 20, lg: 30).getValue(context);
-     var width = Responsive<double>(100,sm: 150 , md: 210,lg: 400).getValue(context);
+     var width = Responsive<double>(100,sm: 160 , md: 210,lg: 400).getValue(context);
       TextStyle headerOne = TextStyle(
         fontSize: textSize,
         fontWeight: FontWeight.bold,
@@ -343,7 +343,7 @@ String validateName(String value) {
                           child: TextFormField(
                             onTap: () {
                               _showDateTimePicker();
-                              // diable keyboard
+                              // hide keyboard
                               FocusScope.of(context).requestFocus(new FocusNode());
                             },
                             controller: _date,
