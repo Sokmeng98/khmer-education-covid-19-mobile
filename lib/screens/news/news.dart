@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../app_localizations.dart';
 
+
 class News extends StatelessWidget {
   static const TextStyle headerOne = TextStyle(
     fontSize: 25,

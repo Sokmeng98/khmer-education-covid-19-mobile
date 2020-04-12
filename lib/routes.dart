@@ -14,6 +14,7 @@ import 'screens/my-health/my_health.dart';
 import 'screens/my-health/my_health_records.dart';
 import 'screens/my-health/my_health_input.dart';
 import 'screens/news/news.dart';
+import 'screens/news/Infected_Statistics.dart';
 import 'screens/map/map.dart';
 import 'screens/setting/setting.dart';
 import 'home.dart';
@@ -26,6 +27,7 @@ class Routes extends StatelessWidget {
     '/my-health-records': (BuildContext context) => MyHealthRecordList(),
     '/my-health-input': (BuildContext context) => MyHealthInput(),
     '/news': (BuildContext context) => News(),
+    '/infected-statistics': (BuildContext context) => InfectedStatistics(),
     '/map': (BuildContext context) => Map(),
     '/setting': (BuildContext context) => Setting(),
     '/self-diagnosis': (BuildContext context) => SelfDiagnosis(),
