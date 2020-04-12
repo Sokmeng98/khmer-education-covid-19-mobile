@@ -55,7 +55,7 @@ Positioned cardDemo(
               child: new Card(
                 color: Colors.transparent,
                 elevation: 20.0,
-                shadowColor: Colors.grey,
+                // shadowColor: Colors.grey,
                 shape: RoundedRectangleBorder(
                   side: new BorderSide(color: Colors.grey, width: 2.0),
                   borderRadius: BorderRadius.circular(15.0),

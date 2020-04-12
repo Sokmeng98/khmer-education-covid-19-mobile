@@ -55,7 +55,9 @@ class News extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/infected-statistics');
+                        },
                         child: Text(
                           AppLocalizations.of(context)
                               .translate('infection-statistics'),
