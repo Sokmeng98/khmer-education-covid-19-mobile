@@ -5,6 +5,7 @@ import 'package:khmer_education/screens/history-covid-19/history-covid-19.dart';
 import 'package:khmer_education/screens/prevention-covid-19/prevention-covid-19.dart';
 import 'package:khmer_education/screens/quiz-covid-19/quiz-covid-19.dart';
 import 'package:khmer_education/screens/self-diagnosis/index.dart';
+import 'package:khmer_education/screens/statistic/kh_statistics.dart';
 import 'package:khmer_education/screens/symptom-covid-19/symptom-covid-19.dart';
 import './AppLanguage.dart';
 import 'app_localizations.dart';
@@ -35,6 +36,7 @@ class Routes extends StatelessWidget {
     '/history-covid-19': (BuildContext context) => History(),
     '/faq-covid-19': (BuildContext context) => FAQ(),
     '/quiz-covid-19': (BuildContext context) => Quiz(),
+    '/kh-statistics': (BuildContext context) => KhStatistics(),
   };
 
   Routes({this.appLanguage});

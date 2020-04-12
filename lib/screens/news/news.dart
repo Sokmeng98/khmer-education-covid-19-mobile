@@ -56,7 +56,7 @@ class News extends StatelessWidget {
                       ),
                       child: MaterialButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/infected-statistics');
+                          Navigator.pushNamed(context, '/kh-statistics');
                         },
                         child: Text(
                           AppLocalizations.of(context)
