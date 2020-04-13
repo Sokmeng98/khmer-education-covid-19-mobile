@@ -9,7 +9,7 @@ class KhStatistics extends StatefulWidget {
   var totalInfection;
   var recoverStatistic;
   var deathStatistic;
-
+  
   @override
   _KhStatisticsState createState() => _KhStatisticsState();
 }
@@ -19,6 +19,7 @@ class _KhStatisticsState extends State<KhStatistics> {
   var totalRecover;
   var totalDeath;
   var locationData;
+ 
 
   void _fetchKhStatisticsAPI() async {
     var response = await http.get('https://khcovid19.com/api/');
@@ -48,11 +49,13 @@ class _KhStatisticsState extends State<KhStatistics> {
     });
   }
 
+
   @override
   void initState() { 
     super.initState();
     _fetchKhStatisticsAPI();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +69,7 @@ class _KhStatisticsState extends State<KhStatistics> {
       body: new Container(
         alignment: Alignment.center,
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Text('Total Infection : $totalInfection'),
               Text('Total Recovered : $totalRecover'),
@@ -86,7 +89,9 @@ class _KhStatisticsState extends State<KhStatistics> {
                   style: TextStyle(fontSize: 20),
                 ),
               )
-            ]),
+            ]
+
+          ),
       ),
     );
   }
