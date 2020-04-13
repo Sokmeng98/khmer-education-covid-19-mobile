@@ -28,30 +28,44 @@ class _KhStatisticsState extends State<KhStatistics> {
     var recover = groupBy(jsonResponse, (obj) => (obj['recovered']));
     var recoverStatistic = recover['1'].length;
     var death = groupBy(jsonResponse, (obj) => (obj['death']));
-    var deathStatistic;
+    var deathStatistic = 0;
     if (death['1'] != null) {
       deathStatistic = death['1'].length;
-    } else {
-      deathStatistic = 0;
     }
     print('Total Infection : ' + infectionStatistic.toString());
     print('Total Recover : ' + recoverStatistic.toString());
     print('Total Death : ' + deathStatistic.toString());
     var locationStatistic = groupBy(jsonResponse, (obj) => obj['location_en']);
+    var infectedProvinces = locationStatistic.keys;
+    var infectedProvinceData = new Map();
+
+    infectedProvinces.forEach((key) {
+      print(key.runtimeType);
+      var province = locationStatistic[key];
+      var death = 0;
+      if (groupBy(province, (obj) => (obj['death']))['1'] != null) {
+        death = groupBy(province, (obj) => (obj['death']))['1'].length;
+      }
+      infectedProvinceData[key] = {
+        'total-infection' : province.length,
+        'total-recovered' : groupBy(province, (obj) => (obj['recovered'])).length,
+        'total-death' : death,
+      }; 
+    });
     print('Location Statistic : ');
-    print(locationStatistic);
+    print(infectedProvinceData);
 
     setState(() {
       totalInfection = infectionStatistic;
       totalRecover = recoverStatistic;
       totalDeath = deathStatistic;
-      locationData = locationStatistic;
+      locationData = infectedProvinceData;
     });
   }
 
 
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     _fetchKhStatisticsAPI();
   }
