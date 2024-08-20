@@ -4,93 +4,43 @@ import "package:collection/collection.dart";
 import 'package:flutter/material.dart';
 import '../../app_localizations.dart';
 
-class KhStatistics extends StatefulWidget {
-  KhStatistics({Key key}) : super(key: key);
+class worldstatistics extends StatefulWidget {
+  worldstatistics({Key key}) : super(key: key);
   var totalInfection;
   var recoverStatistic;
   var deathStatistic;
   
   @override
-  _KhStatisticsState createState() => _KhStatisticsState();
+  _worldstatisticsState createState() => _worldstatisticsState();
 }
 
-class _KhStatisticsState extends State<KhStatistics> {
+class _worldstatisticsState extends State<worldstatistics> {
+
   var totalInfection;
   var totalRecover;
   var totalDeath;
-  var locationData;
-  var province;
-  var sortedProvince;
- 
+  var infection;
 
-  void _fetchKhStatisticsAPI() async {
-    var response = await http.get('https://khcovid19.com/api/');
+    void _fetchworldStatisticsAPI() async {
+    var response = await http.get('https://coronavirus-19-api.herokuapp.com/countries');
     var jsonResponse = convert.jsonDecode(response.body);
-    var infectionStatistic = jsonResponse.length;
-    var recover = groupBy(jsonResponse, (obj) => (obj['recovered']));
-    var recoverStatistic = recover['1'].length;
-    var death = groupBy(jsonResponse, (obj) => (obj['death']));
-    var deathStatistic = 0;
-    if (death['1'] != null) {
-      deathStatistic = death['1'].length;
-    }
-    print('Total Infection : ' + infectionStatistic.toString());
-    print('Total Recover : ' + recoverStatistic.toString());
-    print('Total Death : ' + deathStatistic.toString());
-    var locationStatistic = groupBy(jsonResponse, (obj) => obj['location_en']);
-    var infectedProvinces = locationStatistic.keys;
-    var infectedProvinceData = new Map();
+    var infectionStatistic = jsonResponse[0]['cases'];
+    var recoverStatistic = jsonResponse[0]['recovered'];
+    var deathStatistic = jsonResponse[0]['deaths'];
 
-    infectedProvinces.forEach((key) {
-      print(key.runtimeType);
-      var province = locationStatistic[key];
-      var death = 0;
-      var recovered = 0;
-      if (groupBy(province, (obj) => (obj['death']))['1'] != null) {
-        death = groupBy(province, (obj) => (obj['death']))['1'].length;
-      }
-      if (groupBy(province, (obj) => (obj['recovered']))['1'] != null) {
-        recovered = groupBy(province, (obj) => (obj['recovered']))['1'].length;
-      }
-
-      infectedProvinceData[key] = {
-        'total-infection' : province.length,
-        'total-recovered' : recovered,
-        'total-death' : death,
-      };
-      
-    });
-    
-    List<Map<String,dynamic>> listInfectedProvinceData = [];
-    infectedProvinceData.forEach((key,value) => listInfectedProvinceData.add({key:value}));
-    listInfectedProvinceData.sort((a,b){
-      int aValue = a.values.first["total-infection"];
-      int bValue = b.values.first["total-infection"];
-      return aValue < bValue ? 1:0;
-    });
-    var sortedInfectedProvinceData = Map.fromIterable(listInfectedProvinceData,key:(e) => e.keys.first, value: (e) => e.values.first);
-    print(sortedInfectedProvinceData);
-
-    var indexProvince = sortedInfectedProvinceData.keys.toList();
-    print("kakak");
-    print( indexProvince.length);
-
-    var sortProvince = sortedInfectedProvinceData.values.toList();
 
     setState(() {
       totalInfection = infectionStatistic;
       totalRecover = recoverStatistic;
       totalDeath = deathStatistic;
-      locationData = sortedInfectedProvinceData;
-      province = indexProvince;
-      sortedProvince = sortProvince;
+      infection = jsonResponse;
     });
   }
 
   @override
   void initState() {
     super.initState();
-    _fetchKhStatisticsAPI();
+    _fetchworldStatisticsAPI();
   }
 
   static const TextStyle titleOne = TextStyle(
@@ -107,10 +57,10 @@ class _KhStatisticsState extends State<KhStatistics> {
   bool pressed2 = true;
 
 
+
   @override
   Widget build(BuildContext context) {
-
-    var now = new DateTime.now();
+        var now = new DateTime.now();
     String today = ('${now.day}/${now.month}/${now.year}');
 
     final khmerStatistics =new Expanded(
@@ -310,20 +260,20 @@ class _KhStatisticsState extends State<KhStatistics> {
                             child:Text('${index+1}'),
                           ),
                           Container(
-                            width: 150,
-                            child:Text(province[index]),
+                            width: 100,
+                            child:Text(infection[index+1]["country"].toString()),
                           ),
                           Container(
-                            width: 60,
-                            child:Text(sortedProvince [index]["total-infection"].toString()),
+                            width: 80,
+                            child:Text(infection [index+1]["cases"].toString()),
                           ),
                           Container(
-                            width: 60,
-                            child:Text(sortedProvince [index]["total-recovered"].toString()),
+                            width: 80,
+                            child:Text(infection [index+1]["recovered"].toString()),
                           ),
                           Container(
-                            width: 20,
-                            child:Text(sortedProvince [index]["total-death"].toString()),
+                            width: 30,
+                            child:Text(infection [index+1]["deaths"].toString()),
                           ),
                         ],
                       )
@@ -331,7 +281,7 @@ class _KhStatisticsState extends State<KhStatistics> {
                   ),
                 );
               },
-              childCount: province == null ? 0 : province.length,
+              childCount: 10,
             ) 
           )
         ],
